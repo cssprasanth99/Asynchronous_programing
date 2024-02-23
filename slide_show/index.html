@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Show</title>
+    <style>
+        #slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        .btn {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="slideshow-container">
+        <div class="slide fade">
+            <img src="https://media.istockphoto.com/id/1462221578/photo/puma-portrait.webp?b=1&s=170667a&w=0&k=20&c=4f0m1L9YEvUIlQr50Tuh3hEwtaGO1yM_4342p83Hz8E="
+                alt="Image 1">
+        </div>
+        <div class="slide fade">
+            <img src="https://media.istockphoto.com/id/1454642699/photo/zebras-drinking-water-at-waterhole.webp?b=1&s=170667a&w=0&k=20&c=vnIfsz5w5lvMnAVK6ek4bgIyO7Vqlpf9aj8ulfnPEfE="
+                alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/1/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/2/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/3/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/4/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/5/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/6/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/7/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/8/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/9/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/10/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/11/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/12/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/13/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/14/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/15/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/16/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/17/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/18/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/20/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/21/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/22/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/23/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/24/1000/500" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="https://picsum.photos/id/25/1000/500" alt="Image 2">
+        </div>
+        <!-- Add more slides as needed -->
+    </div>
+
+    <button class="btn" onclick="toggleSlideShow()">Start/Stop</button>
+    <button class="btn" onclick="plusSlides(-1)">Previous</button>
+    <button class="btn" onclick="plusSlides(1)">Next</button>
+
+    <script>
+        let slideIndex = 0;
+        let slideshowInterval;
+
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            slideshowInterval = setTimeout(showSlides, 2000); // Change slide every 2 seconds
+        }
+
+        function plusSlides(n) {
+            clearTimeout(slideshowInterval);
+            showSlides(slideIndex += n);
+        }
+
+        function toggleSlideShow() {
+            if (slideshowInterval) {
+                clearTimeout(slideshowInterval);
+                slideshowInterval = null;
+            } else {
+                showSlides();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
